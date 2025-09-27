@@ -18,5 +18,5 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
 # Render 会通过 PORT 环境变量分配端口，必须使用该变量
-ENTRYPOINT ["java", "-jar", "app.jar", "--server.port=${PORT}"]
+ENTRYPOINT ["java", "-jar", "app.jar", "--server.port=8080"]
     
