@@ -1,0 +1,68 @@
+= RESTful API Documentation
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+== Overview
+
+This is the API documentation for the Spring Boot Hello World application.
+
+== APIs
+
+=== Hello API
+
+==== Get Greeting
+Operation to get a greeting message.
+
+.Request
+include::{snippets}/hello/http-request.adoc[]
+
+.Response
+include::{snippets}/hello/http-response.adoc[]
+
+.Response Fields
+include::{snippets}/hello/response-fields.adoc[]
+
+=== User APIs
+
+==== Get All Users
+Operation to get all users.
+
+.Request
+include::{snippets}/users-get-all/http-request.adoc[]
+
+.Response
+include::{snippets}/users-get-all/http-response.adoc[]
+
+.Response Fields
+include::{snippets}/users-get-all/response-fields.adoc[]
+
+==== Get User by ID
+Operation to get a specific user by ID.
+
+.Request
+include::{snippets}/user-get-by-id/http-request.adoc[]
+
+.Response
+include::{snippets}/user-get-by-id/http-response.adoc[]
+
+.Response Fields
+include::{snippets}/user-get-by-id/response-fields.adoc[]
+
+==== Create User
+Operation to create a new user.
+
+.Request
+include::{snippets}/user-create/http-request.adoc[]
+
+.Request Fields
+include::{snippets}/user-create/request-fields.adoc[]
+
+.Response
+include::{snippets}/user-create/http-response.adoc[]
+
+.Response Fields
+include::{snippets}/user-create/response-fields.adoc[]

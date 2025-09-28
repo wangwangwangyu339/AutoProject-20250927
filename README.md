@@ -2,6 +2,16 @@
 
 这是一个使用 Spring Boot 和 Supabase 构建的 RESTful API 项目。
 
+![Docker Build and Push](https://github.com/wangwangwangyu339/AutoProject-20250927/actions/workflows/docker-publish.yml/badge.svg)
+
+## Docker 镜像
+
+项目的 Docker 镜像已发布到 Docker Hub：
+
+```bash
+docker pull wangwangwangyu339/autoproject-20250927:latest
+```
+
 ## 项目要求
 
 - JDK 17 或更高版本
