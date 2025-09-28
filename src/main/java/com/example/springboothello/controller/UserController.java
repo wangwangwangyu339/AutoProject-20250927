@@ -1,37 +1,53 @@
 package com.example.springboothello.controller;
 
+import com.example.springboothello.model.User;
+import io.github.supabase.SupabaseClient;
 import org.springframework.web.bind.annotation.*;
-import java.util.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    private static final List<Map<String, Object>> users = new ArrayList<>();
-    static {
-        Map<String, Object> user1 = new HashMap<>();
-        user1.put("id", 1);
-        user1.put("name", "Alice");
-        users.add(user1);
-        Map<String, Object> user2 = new HashMap<>();
-        user2.put("id", 2);
-        user2.put("name", "Bob");
-        users.add(user2);
-    }
+    
+    @Autowired
+    private SupabaseClient supabaseClient;
 
     @GetMapping("")
-    public List<Map<String, Object>> getAllUsers() {
-        return users;
+    public List<User> getAllUsers() {
+        return supabaseClient.rest().table("users")
+                .select()
+                .executeAndGetList(User.class);
     }
 
     @GetMapping("/{id}")
-    public Map<String, Object> getUserById(@PathVariable int id) {
-        return users.stream().filter(u -> u.get("id").equals(id)).findFirst().orElse(null);
+    public User getUserById(@PathVariable Long id) {
+        return supabaseClient.rest().table("users")
+                .select()
+                .eq("id", id)
+                .executeAndGetSingle(User.class);
     }
 
     @PostMapping("")
-    public Map<String, Object> createUser(@RequestBody Map<String, Object> user) {
-        user.put("id", users.size() + 1);
-        users.add(user);
-        return user;
+    public User createUser(@RequestBody User user) {
+        return supabaseClient.rest().table("users")
+                .insert(user)
+                .executeAndGetSingle(User.class);
+    }
+
+    @PutMapping("/{id}")
+    public User updateUser(@PathVariable Long id, @RequestBody User user) {
+        return supabaseClient.rest().table("users")
+                .update(user)
+                .eq("id", id)
+                .executeAndGetSingle(User.class);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        supabaseClient.rest().table("users")
+                .delete()
+                .eq("id", id)
+                .execute();
     }
 }
