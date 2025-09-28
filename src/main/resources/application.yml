@@ -3,3 +3,11 @@ server:
 spring:
   application:
     name: spring-boot-hello
+
+supabase:
+  url: ${SUPABASE_URL}
+  key: ${SUPABASE_KEY}
+  # 替换为您的 Supabase 项目配置
+  # url: https://yyqwjspdootwzrigygkf.supabase.co
+  # key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl5cXdqc3Bkb290d3pyaWd5Z2tmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5NzIyNjMsImV4cCI6MjA3NDU0ODI2M30.q2GmjdJMrwCwbqDot-QqDr1glnC69ipWhtWPCjW9w5k
+
