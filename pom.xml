@@ -16,6 +16,8 @@
     <description>Spring Boot Hello World Example</description>
     <properties>
         <java.version>17</java.version>
+        <!-- <maven.compiler.source>11</maven.compiler.source> -->
+        <!-- <maven.compiler.target>11</maven.compiler.target> -->
     </properties>
     <dependencies>
         <dependency>
@@ -27,16 +29,25 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- Supabase dependencies -->
+        <!-- Database and Web Client dependencies -->
         <dependency>
-            <groupId>io.github.supabase-community</groupId>
-            <artifactId>supabase-java</artifactId>
-            <version>0.0.2</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20230618</version>
         </dependency>
     </dependencies>
     <build>
